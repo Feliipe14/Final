@@ -6,7 +6,7 @@
 
 	<link rel="stylesheet" type="text/css" href="estilo.css">
 
-	<title>INICIO</title>
+	<title>Quienes somos</title>
 </head>
 <body>
 <header>

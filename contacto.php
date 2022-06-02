@@ -6,7 +6,7 @@
 
 	<link rel="stylesheet" type="text/css" href="estilo.css">
 
-	<title>INICIO</title>
+	<title>Contacto</title>
 </head>
 <body>
 <header>

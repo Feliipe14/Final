@@ -40,6 +40,8 @@ if (isset($_POST['submit'])) {
 	<title>ZOOLAND</title>
 </head>
 <body>
+<h1 class="encabezado">Veterinaria</h1>
+
 		<h1 class="titulo">Bienvenido a ZOOLAND</h1>
 	<div class="container">
 		<form action="" method="POST" class="login-email">

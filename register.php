@@ -13,6 +13,8 @@ if (isset($_SESSION['username'])) {
 if (isset($_POST['submit'])) {
 	$username = $_POST['username'];
 	$email = $_POST['email'];
+	$mascota = $_POST['mascota'];
+	$peso = $_POST['peso'];
 	$password = md5($_POST['password']);
 	$cpassword = md5($_POST['cpassword']);
 
@@ -20,15 +22,18 @@ if (isset($_POST['submit'])) {
 		$sql = "SELECT * FROM users WHERE email='$email'";
 		$result = mysqli_query($conn, $sql);
 		if (!$result->num_rows > 0) {
-			$sql = "INSERT INTO users (username, email, password)
-					VALUES ('$username', '$email', '$password')";
+			$sql = "INSERT INTO users (username, email, password, mascota, peso)
+					VALUES ('$username', '$email', '$password', '$mascota' ,'$peso' )";
 			$result = mysqli_query($conn, $sql);
 			if ($result) {
 				echo "<script>alert('Registro completo.')</script>";
 				$username = "";
 				$email = "";
+				$mascota = "";
+                $peso = "";
 				$_POST['password'] = "";
 				$_POST['cpassword'] = "";
+
 			} else {
 				echo "<script>alert('Woops! Something Wrong Went.')</script>";
 			}
@@ -53,7 +58,7 @@ if (isset($_POST['submit'])) {
 
 	<link rel="stylesheet" type="text/css" href="style.css">
 
-	<title>Register Form - Pure Coding</title>
+	<title>Registro</title>
 </head>
 <body>
 	<div class="container">
@@ -71,6 +76,13 @@ if (isset($_POST['submit'])) {
             <div class="input-group">
 				<input type="password" placeholder="Confirmar contraseña" name="cpassword" value="<?php echo $_POST['cpassword']; ?>" required>
 			</div>
+			<div class="input-group">
+				<input type="text" placeholder="Nombre de la mascota" name="mascota" value="<?php echo $mascota; ?>" required>
+			</div>
+			<div class="input-group">
+				<input type="text" placeholder="Peso de la mascota" name="peso" value="<?php echo $peso; ?>" required>
+			</div>
+			
 			<div class="input-group">
 				<button name="submit" class="btn">Registrar</button>
 			</div>
